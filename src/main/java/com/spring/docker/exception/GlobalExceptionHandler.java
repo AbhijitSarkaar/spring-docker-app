@@ -1,5 +1,5 @@
 
-package com.spring.docker.exceptions;
+package com.spring.docker.exception;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -23,5 +23,17 @@ public class GlobalExceptionHandler {
             map.put(key, message);
         });
         return new ResponseEntity<>(map, HttpStatus.BAD_REQUEST);
+    }
+
+    @ExceptionHandler(CustomRuntimeException.class)
+    public ResponseEntity<CustomErrorResponse> customRuntimeExceptionHandler(CustomRuntimeException e) {
+        CustomErrorResponse customErrorResponse = new CustomErrorResponse(e.getMessage());
+        return new ResponseEntity<>(customErrorResponse, HttpStatus.INTERNAL_SERVER_ERROR);
+    }
+
+    @ExceptionHandler(CustomResourceNotFoundException.class)
+    public ResponseEntity<CustomErrorResponse> customResourceNotFoundHandler(CustomResourceNotFoundException e) {
+        CustomErrorResponse customErrorResponse = new CustomErrorResponse(e.getMessage());
+        return new ResponseEntity<>(customErrorResponse, HttpStatus.NOT_FOUND);
     }
 }

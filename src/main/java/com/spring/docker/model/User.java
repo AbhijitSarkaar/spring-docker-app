@@ -8,6 +8,8 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.ArrayList;
+
 @Entity
 @Table(name = "users")
 @Data
@@ -22,12 +24,12 @@ public class User {
     @NotBlank
     @Email
     @Size(min = 3, max = 30)
-    @Column(name = "email")
+    @Column(name = "email", unique = true)
     private String email;
 
     @NotBlank
     @Size(min = 2, max = 20)
-    @Column(name = "username")
+    @Column(name = "username", unique = true)
     private String username;
 
 }

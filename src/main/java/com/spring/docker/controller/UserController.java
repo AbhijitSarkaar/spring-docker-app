@@ -1,6 +1,6 @@
 package com.spring.docker.controller;
 
-import com.spring.docker.exceptions.APIResponse;
+import com.spring.docker.exception.APIResponse;
 import com.spring.docker.payload.UserDTO;
 import com.spring.docker.payload.UserRequestDTO;
 import com.spring.docker.service.UserService;

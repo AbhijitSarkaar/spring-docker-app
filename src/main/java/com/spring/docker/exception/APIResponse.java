@@ -1,4 +1,4 @@
-package com.spring.docker.exceptions;
+package com.spring.docker.exception;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
